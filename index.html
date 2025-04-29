@@ -28,6 +28,29 @@ a, a:hover {
 	color: #2a07f1;
 }
 
+/* Custom Bullet Styles */
+.custom-bullet {
+    display: table;
+    width: 100%;
+    margin: 8px 0;
+}
+
+.bullet-icon {
+    display: table-cell;
+    vertical-align: top;
+    padding-right: 10px;
+    padding-top: 3px;
+    color: #ff9206;
+    font-weight: bold;
+    width: 20px;
+}
+
+.bullet-text {
+    display: table-cell;
+    vertical-align: top;
+    line-height: 150%;
+}
+
 /* Responsive styles */
 @media screen and (max-width: 600px) {
     .img-responsive {
@@ -37,10 +60,53 @@ a, a:hover {
     }
     .center-on-mobile {
         text-align: center !important;
+        display: block !important;
+        width: 100% !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        padding-bottom: 15px !important;
+    }
+    .mobile-product-title {
+        display: block !important;
+        text-align: center !important;
+        font-size: 20px !important;
+        padding-bottom: 10px !important;
+        color: #345cb1 !important;
+        font-weight: bold !important;
+    }
+    .mobile-product-image {
+        width: 180px !important;
+        height: auto !important;
+        margin: 0 auto 15px auto !important;
+    }
+    .mobile-product-content {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        padding-top: 0px !important;
+    }
+    .hide-on-mobile {
+        display: none !important;
+    }
+    .show-on-mobile {
+        display: block !important;
     }
     .button-mobile {
         width: 100% !important;
         max-width: 300px !important;
+    }
+    .mobile-bullet {
+        display: block !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+    }
+    .mobile-bullet .bullet-icon {
+        display: inline-block !important;
+        width: auto !important;
+        padding-right: 5px !important;
+    }
+    .mobile-bullet .bullet-text {
+        display: inline-block !important;
     }
 }
  	</style>
@@ -66,15 +132,15 @@ a, a:hover {
 
 	<!-- LOGO & PREHEADER -->
 	<tr>
-		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%; padding-top: 20px; padding-bottom: 20px;">
+		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; width: 100%; padding-top: 20px; padding-bottom: 20px;">
 			<!-- PREHEADER -->
 			<div style="display: none; visibility: hidden; overflow: hidden; opacity: 0; font-size: 1px; line-height: 1px; height: 0; max-height: 0; max-width: 0; color: #F7F4F9;" class="preheader">
 				Комплект "Щастлива мама" - две книги и два бонус курса. Подарете щастие на себе си или любима жена!
 			</div>
 
-			<!-- LOGO -->
-			<a target="_blank" style="text-decoration: none;" href="https://semma.bg">
-                <img border="0" vspace="0" hspace="0" src="https://almishev.github.io/email-marketing/images/logoh.png" width="120" height="40" alt="Semma" title="Semma Logo" style="color: #000000; font-size: 10px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" />
+			<!-- LOGO - ШИРИНА 100% -->
+			<a target="_blank" style="text-decoration: none; display: block; width: 100%;" href="https://semma.bg">
+                <img border="0" vspace="0" hspace="0" src="https://almishev.github.io/email-marketing/images/sema-banner4.png" alt="Semma" title="Semma Logo" style="color: #000000; font-size: 10px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block; width: 100%;" />
             </a>
 		</td>
 	</tr>
@@ -110,7 +176,7 @@ a, a:hover {
 	<tr>
 		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 20px;" class="hero">
             <a target="_blank" style="text-decoration: none;" href="https://semma.bg/produkt/%d0%ba%d0%be%d0%bc%d0%bf%d0%bb%d0%b5%d0%ba%d1%82-%d1%89%d0%b0%d1%81%d1%82%d0%bb%d0%b8%d0%b2%d0%b0-%d0%bc%d0%b0%d0%bc%d0%b0/">
-                <img border="0" vspace="0" hspace="0" src="https://almishev.github.io/email-marketing/images/helicon-banner.jpg" alt="Комплект Щастлива Мама" title="Комплект книги" width="560" style="width: 100%; max-width: 560px; color: #000000; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" class="img-responsive" />
+                <img border="0" vspace="0" hspace="0" src="https://almishev.github.io/email-marketing/images/komplect-shastliva-mama.png" alt="Комплект Щастлива Мама" title="Комплект книги" width="560" style="width: 100%; max-width: 560px; color: #000000; font-size: 13px; margin: 0; padding: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block;" class="img-responsive" />
             </a>
         </td>
 	</tr>
@@ -161,29 +227,52 @@ a, a:hover {
 	<!-- КНИГА 1 -->
 	<tr>
 		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%;" class="list-item">
+            <!-- Заглавие за мобилен изглед -->
+            <div class="mobile-product-title hide-on-mobile" style="display: none;">Дневникът на една щастлива бременна</div>
+            
             <table align="center" border="0" cellspacing="0" cellpadding="0" style="width: inherit; margin: 0; padding: 0; border-collapse: collapse; border-spacing: 0;">
                 <tr>
                     <!-- КНИГА 1 ИЗОБРАЖЕНИЕ -->
                     <td align="left" valign="top" style="border-collapse: collapse; border-spacing: 0; padding-top: 30px; padding-right: 20px;" class="center-on-mobile">
                         <a href="https://semma.bg/produkt/%D0%B4%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA%D1%8A%D1%82-%D0%BD%D0%B0-%D0%B5%D0%B4%D0%BD%D0%B0-%D1%89%D0%B0%D1%81%D1%82%D0%BB%D0%B8%D0%B2%D0%B0-%D0%B1%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D0%B0/" target="_blank">
-                            <img border="0" vspace="0" hspace="0" style="padding: 0; margin: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block; color: #000000;" src="https://almishev.github.io/email-marketing/images/koledna-pesen.png" alt="Дневникът на една щастлива бременна" title="Книга за бременността" width="140" height="130" class="img-responsive">
+                            <img border="0" vspace="0" hspace="0" style="padding: 0; margin: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block; color: #000000;" src="https://almishev.github.io/email-marketing/images/dnevnik-shastliva-bremenna.png" alt="Дневникът на една щастлива бременна" title="Книга за бременността" width="140" height="130" class="img-responsive mobile-product-image">
                         </a>
                     </td>
                     
                     <!-- КНИГА 1 ИНФОРМАЦИЯ -->
-                    <td align="left" valign="top" style="font-size: 17px; font-weight: 400; line-height: 160%; border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 25px; color: #000000; font-family: sans-serif;" class="paragraph">
-                        <b style="color: #345cb1; font-size: 18px;">Дневникът на една щастлива бременна</b><br/>
-                        <p style="margin-top: 8px; margin-bottom: 8px;">
+                    <td align="left" valign="top" style="font-size: 17px; font-weight: 400; line-height: 160%; border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 25px; color: #000000; font-family: sans-serif;" class="paragraph mobile-product-content">
+                        <b style="color: #345cb1; font-size: 18px;" class="hide-on-mobile">Дневникът на една щастлива бременна</b><br class="hide-on-mobile"/>
+                        <p style="margin-top: 8px; margin-bottom: 15px; line-height: 150%;">
                             Искате ли:
-                            <ul style="margin-top: 5px; padding-left: 20px;">
-                                <li>да качите само 7 кг за цялата бременност</li>
-                                <li>да ядете всичко без да се подувате</li>
-                                <li>да не ви се повръща и да имате енергия</li>
-                                <li>косата ви да е здрава</li>
-                                <li>бебчо да няма колики и да спите спокойно</li>
-                            </ul>
                         </p>
-                        <p>Тази книга ще ви помогне от 6 месеца преди забременяване до 6-тата година от развитието на детето!</p>
+                        
+                        <!-- Красиви булети за първата книга -->
+                        <div class="custom-bullet mobile-bullet">
+                            <div class="bullet-icon">✓</div>
+                            <div class="bullet-text">да качите само 7 кг за цялата бременност</div>
+                        </div>
+                        
+                        <div class="custom-bullet mobile-bullet">
+                            <div class="bullet-icon">✓</div>
+                            <div class="bullet-text">да ядете всичко без да се подувате</div>
+                        </div>
+                        
+                        <div class="custom-bullet mobile-bullet">
+                            <div class="bullet-icon">✓</div>
+                            <div class="bullet-text">да не ви се повръща и да имате енергия</div>
+                        </div>
+                        
+                        <div class="custom-bullet mobile-bullet">
+                            <div class="bullet-icon">✓</div>
+                            <div class="bullet-text">косата ви да е здрава</div>
+                        </div>
+                        
+                        <div class="custom-bullet mobile-bullet">
+                            <div class="bullet-icon">✓</div>
+                            <div class="bullet-text">бебчо да няма колики и да спите спокойно</div>
+                        </div>
+                        
+                        <p style="margin-top: 15px; line-height: 150%;">Тази книга ще ви помогне от 6 месеца преди забременяване до 6-тата година от развитието на детето!</p>
                     </td>
                 </tr>
             </table>
@@ -193,28 +282,47 @@ a, a:hover {
 	<!-- КНИГА 2 -->
 	<tr>
 		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%;" class="list-item">
+            <!-- Заглавие за мобилен изглед -->
+            <div class="mobile-product-title hide-on-mobile" style="display: none;">Арт терапия "В търсене на себе си"</div>
+            
             <table align="center" border="0" cellspacing="0" cellpadding="0" style="width: inherit; margin: 0; padding: 0; border-collapse: collapse; border-spacing: 0;">
                 <tr>
                     <!-- КНИГА 2 ИЗОБРАЖЕНИЕ -->
                     <td align="left" valign="top" style="border-collapse: collapse; border-spacing: 0; padding-top: 30px; padding-right: 20px;" class="center-on-mobile">
                         <a href="https://semma.bg/produkt/%D0%B0%D1%80%D1%82-%D1%82%D0%B5%D1%80%D0%B0%D0%BF%D0%B8%D1%8F-%D0%B2-%D1%82%D1%8A%D1%80%D1%81%D0%B5%D0%BD%D0%B5-%D0%BD%D0%B0-%D1%81%D0%B5%D0%B1%D0%B5-%D1%81%D0%B8/" target="_blank">
-                            <img border="0" vspace="0" hspace="0" style="padding: 0; margin: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block; color: #000000;" src="https://almishev.github.io/email-marketing/images/helikon-redaktor.jpg" alt="В търсене на себе си" title="Арт терапия книга" width="140" height="130" class="img-responsive">
+                            <img border="0" vspace="0" hspace="0" style="padding: 0; margin: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; border: none; display: block; color: #000000;" src="https://almishev.github.io/email-marketing/images/v-tarsene-na-sebesi.png" alt="В търсене на себе си" title="Арт терапия книга" width="140" height="130" class="img-responsive mobile-product-image">
                         </a>
                     </td>
                     
                     <!-- КНИГА 2 ИНФОРМАЦИЯ -->
-                    <td align="left" valign="top" style="font-size: 17px; font-weight: 400; line-height: 160%; border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 25px; color: #000000; font-family: sans-serif;" class="paragraph">
-                        <b style="color: #345cb1; font-size: 18px;">Арт терапия "В търсене на себе си"</b><br/>
-                        <p style="margin-top: 8px; margin-bottom: 8px;">
+                    <td align="left" valign="top" style="font-size: 17px; font-weight: 400; line-height: 160%; border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-top: 25px; color: #000000; font-family: sans-serif;" class="paragraph mobile-product-content">
+                        <b style="color: #345cb1; font-size: 18px;" class="hide-on-mobile">Арт терапия "В търсене на себе си"</b><br class="hide-on-mobile"/>
+                        <p style="margin-top: 8px; margin-bottom: 15px; line-height: 150%;">
                             В тази книга ще научите:
-                            <ul style="margin-top: 5px; padding-left: 20px;">
-                                <li>Как да се свържете със себе си и своята женска енергия</li>
-                                <li>Как да вярвате повече в своите способности</li>
-                                <li>Как да преборите страховете си и да ги превърнете в своя сила</li>
-                                <li>Как да отстоявате своите граници</li>
-                            </ul>
                         </p>
-                        <p><i>99% от заболяванията се появяват от липса на любов и приемане на себе си!</i></p>
+                        
+                        <!-- Красиви булети за втората книга -->
+                        <div class="custom-bullet mobile-bullet">
+                            <div class="bullet-icon">✓</div>
+                            <div class="bullet-text">Как да се свържете със себе си и своята женска енергия</div>
+                        </div>
+                        
+                        <div class="custom-bullet mobile-bullet">
+                            <div class="bullet-icon">✓</div>
+                            <div class="bullet-text">Как да вярвате повече в своите способности</div>
+                        </div>
+                        
+                        <div class="custom-bullet mobile-bullet">
+                            <div class="bullet-icon">✓</div>
+                            <div class="bullet-text">Как да преборите страховете си и да ги превърнете в своя сила</div>
+                        </div>
+                        
+                        <div class="custom-bullet mobile-bullet">
+                            <div class="bullet-icon">✓</div>
+                            <div class="bullet-text">Как да отстоявате своите граници</div>
+                        </div>
+                        
+                        <p style="margin-top: 15px; line-height: 150%;"><i>99% от заболяванията се появяват от липса на любов и приемане на себе си!</i></p>
                     </td>
                 </tr>
             </table>
