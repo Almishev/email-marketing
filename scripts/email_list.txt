@@ -1,0 +1,5 @@
+recipient1@example.com
+recipient2@example.com
+recipient3@example.com
+# Добавете реални имейл адреси, по един на ред
+# Редовете, започващи с # се игнорират
